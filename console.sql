@@ -123,11 +123,11 @@ join albums on tracks.album_id = albums.id
 where albums.release_year between 2019 and 2020;
 
 
-select albums.title as album_title, avg(tracks.duration) as avg_duration
+select albums.title, avg(tracks.duration)
 from albums
 join tracks on albums.id = tracks.album_id
 group by albums.title
-order by avg_duration desc;
+order by avg(tracks.duration) desc;
 
 
 select artist.name
